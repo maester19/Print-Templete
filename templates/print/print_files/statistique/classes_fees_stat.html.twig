@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>STATISTIQUE | HSM</title>
+</head>
+<body>
+<style type="text/css">
+
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    caption, th, td {
+        text-align: left;
+        font-weight: normal;
+        vertical-align: middle;
+    }
+
+    a img {
+        border: none;
+    }
+
+    body {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        color: #777777;
+    }
+
+    body .container {
+        min-width: 500px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+    body .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    header {
+        height: 30px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        padding: 0px 5px 0;
+    }
+
+    header .company-info {
+        color: #656464;
+        width: 50%;
+    }
+
+    header .company-logo {
+        position: relative;
+        top: -70px;
+        left: 45%;
+        width: 80px;
+        height: 80px;
+    }
+
+    header .company-logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    header .company-info .title {
+        margin-bottom: 5px;
+        color: #656464;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    table.table-info {
+        text-align: center;
+        width: 100%;
+        border: 1px solid #656464;
+        border-radius: 5px;
+        opacity: 0.5;
+    }
+
+    table.table-info td, table.table-info th {
+        border: 1px solid #656464;
+        color: #656464;
+        font-size: 12px;
+        padding: 4px;
+        text-align: center;
+    }
+
+    table.table-info td {
+        font-size: 13px;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    table.table-info thead th {
+        color: white;
+        font-weight: bold;
+        background-color: #656464;
+        text-align: center;
+    }
+
+    table.table-info tfoot {
+        font-size: 13px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    table.table-info tfoot td {
+        font-size: 14px;
+    }
+
+    table.table-list {
+        text-align: center;
+        width: 100%;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        opacity: 0.5;
+    }
+
+    table.table-list td, table.table-list th {
+        border: 1px solid #656464;
+        font-size: 12px;
+        padding: 4px;
+        text-align: center;
+    }
+
+    table.table-list td {
+        font-size: 13px;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    table.table-list thead th {
+        color: white;
+        font-weight: bold;
+        background-color: #656464;
+        text-align: center;
+    }
+
+    table.table-list tfoot {
+        font-size: 13px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    table.table-list tfoot td {
+        font-size: 14px;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 50px;
+        padding: 0 5px;
+    }
+
+    footer .end {
+        padding-top: 5px;
+        border-top: 2px solid #656464;
+        text-align: center;
+        font-size: 1.16666666666667em;
+    }
+
+</style>
+
+<header class="clearfix">
+    <div class="container">
+        <div class="company-info">
+            <h6 class="title">INSTITUT PRIVE LAIC MBEUKAM</h6>
+            <span>455 Foggy Heights, AZ 85004, US</span><br>
+            <span class="phone">(602) 519-0450</span><br>
+            <span class="email">company@example.com</span>
+        </div>
+
+        <div class="company-logo">
+            <img src="http://localhost/host_secondaire/public/images/template_images/AdminLTELogo.png" alt="#">
+        </div>
+    </div>
+</header>
+
+<section class="container">
+    <div class="section-title"
+         style="width: 80%;margin-top: 40px;text-align: center;margin-left: 10%;font-weight: bold;">
+
+        <span style="font-size: 18px;text-align: center;border-bottom: 2px solid #656464;">
+            ETAT DES CHIFFRES DE LA CLASSE DE {{ classe.label|upper }}</span>
+    </div>
+
+    <div class="section-info" style="margin-top: 20px;">
+        <table class="table-info">
+            <thead>
+            <tr>
+                <th>MONTANT TOTAL</th>
+                <th>MONTANT ENCAISSER</th>
+                <th>MONTANT RESTANT</th>
+                <th>NOMBRE D'ELEVES</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ information.montantTotal|number_format(0 , ',' , ' ') }}</td>
+                <td>{{ information.montantRecouvrer|number_format(0 , ',' , ' ') }}</td>
+                <td>{{ information.montantRestant|number_format(0 , ',' , ' ') }}</td>
+                <td>{{ information.nombreEleve }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section-list">
+        <table class="table-list" style="margin-top: 20px;">
+            <thead>
+            <tr>
+                <th style="width: 10%;">MATRICULE</th>
+                <th style="width: 40%;">ELEVES</th>
+                <th>SOLVABILITE</th>
+                <th style="width: 30%;">TRANCHE</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for eleve in eleves %}
+                <tr>
+                    <td>{{ eleve.matricule }}</td>
+                    <td style="text-align: left;">{{ eleve.nom|upper }} {{ eleve.prenom|upper }} </td>
+                    <td>{{ eleve.solvabilite|number_format(0 , ',' , ' ') }}
+                        ( {{ eleve.solvabilitePercent(classe)|number_format(2 , ',') }} % )
+                    </td>
+                    <td>
+                        {{ eleve.tranche(classe) }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="end">Generer avec HSM | Host School Managment</div>
+    </div>
+</footer>
+
+</body>
+
+</html>

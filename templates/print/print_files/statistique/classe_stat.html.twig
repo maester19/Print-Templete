@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>STATISTIQUE | HSM</title>
+</head>
+<body>
+<style type="text/css">
+
+    * {
+        margin-top: 30px;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    caption, th, td {
+        text-align: left;
+        font-weight: normal;
+        vertical-align: middle;
+    }
+
+    a img {
+        border: none;
+    }
+
+    body {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    body .container {
+        min-width: 500px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+    body .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    header {
+        height: 30px;
+        margin-top: -30px;
+        margin-bottom: 40px;
+        padding: 0px 5px 0;
+    }
+
+    header .company-info {
+        color: #1f1f1f;
+        width: 45%;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    header .company-logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    header .company-info .title {
+        margin-bottom: 5px;
+        color: #1f1f1f;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    table.table-info {
+        text-align: center;
+        width: 100%;
+        border: 0.5px solid #656464;
+        border-radius: 5px;
+    }
+
+    table.table-info td, table.table-info th {
+        border: 0.5px solid #000000;
+        font-size: 12px;
+        padding: 4px;
+        text-align: center;
+    }
+
+    table.table-info td {
+        font-size: 13px;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    table.table-info thead th {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    table.table-info tfoot {
+        font-size: 13px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    table.table-info tfoot td {
+        font-size: 12px;
+    }
+
+    table.table-list {
+        text-align: center;
+        width: 100%;
+        border: 0.5px solid #000000;
+        border-radius: 5px;
+        opacity: 0.5;
+    }
+
+    table.table-list td, table.table-list th {
+        border: 0.5px solid #000000;
+        font-size: 12px;
+        padding: 4px;
+        text-align: center;
+    }
+
+    table.table-list td {
+        font-size: 13px;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    table.table-list thead th {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    table.table-list tfoot {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    table.table-list tfoot td {
+        font-size: 14px;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 50px;
+        padding: 0 5px;
+    }
+
+    footer .end {
+        padding-top: 5px;
+        border-top: 2px solid #656464;
+        text-align: center;
+        font-size: 1.16666666666667em;
+    }
+
+</style>
+
+<header class="clearfix">
+    <div class="container">
+        <div class="company-info">
+            <h6 class="title">REPUBLIQUE DU CAMEROUN</h6>
+            <span>Ministere d'enseignement Secondaire</span><br>
+            <span>Deleguation regional du centre</span><br>
+            <span>----------</span>
+        </div>
+
+        <div class="company-info right" style="position: absolute;top: 0;left: 65%;">
+            <h6 class="title">INSTITUT PRIVE LAIC MBEUKAM</h6>
+            <span>Collège d'Enseignement Sécondaire Général</span><br>
+            <span>B P : Tel ( 237 ) 677 61 41 52</span><br>
+            <span>Annee scolaire : 2020 - 2021</span>
+        </div>
+    </div>
+</header>
+
+<section class="container">
+    <div class="section-title"
+         style="width: 80%;margin-top: 90px;text-align: center;margin-left: 10%;font-weight: bold;">
+        <span style="font-size: 18px;text-align: center;border-bottom: 2px solid #656464;">
+            CLASSE {{ classe.label|upper }}</span>
+    </div>
+
+    <div class="section-info" style="margin-top: 20px;">
+        <table class="table-info">
+            <thead>
+            <tr>
+                <th colspan="3">NOUVEAUX</th>
+                <th colspan="3">REDOUBLANTS</th>
+                <th colspan="3">EFFECTIFS GENERAL</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>G</td>
+                <td>F</td>
+                <td>T</td>
+                <td>G</td>
+                <td>F</td>
+                <td>T</td>
+                <td>G</td>
+                <td>F</td>
+                <td>T</td>
+            </tr>
+            <tr>
+                <td>{{ stat.garconNouveau }}</td>
+                <td>{{ stat.filleNouvelle }}</td>
+                <td>{{ stat.totalNouveau }}</td>
+                <td>{{ stat.garconRedoublant }}</td>
+                <td>{{ stat.filleRedoublante }}</td>
+                <td>{{ stat.redoublants }}</td>
+                <td>{{ stat.totalGarcon }}</td>
+                <td>{{ stat.totalFille }}</td>
+                <td>{{ stat.total }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section-list">
+        <table class="table-list" style="margin-top: 20px;">
+            <thead>
+            <tr>
+                <th style="width: 4%;">N^</th>
+                <th style="width: 10%;">MATRICULE</th>
+                <th>NOM ET PRENOM</th>
+                <th style="width: 10%;">DATE NAISSANCE</th>
+                <th>LIEU</th>
+                <th style="width: 5%;">SEXE</th>
+                <th style="width: 5%;">STATUT</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set numero = 1 %}
+            {% for eleve in eleves %}
+                <tr>
+                    <td>{{ numero }}</td>
+                    <td>{{ eleve.matricule }}</td>
+                    <td style="text-align: left;">{{ eleve.nom|upper }} {{ eleve.prenom|upper }} </td>
+                    <td>{{ eleve.dateNaissance|date('d/m/Y') }}</td>
+                    <td>{{ eleve.lieuNaissance }}</td>
+                    <td>{{ eleve.genre == 'Fille' ? 'F' : 'G' }}</td>
+                    <td>{{ eleve.nombreEchecs > 0 ? 'R' : 'N' }}</td>
+                </tr>
+                {% set numero = numero + 1 %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

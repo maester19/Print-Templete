@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RECU | HSM</title>
+</head>
+<body>
+{% include 'print_files/includes_fees/_styles.html.twig' %}
+<header class="clearfix">
+    <div class="container">
+        <div class="company-info">
+            <h2 class="title"><strong style="font-weight: 400;font-family: sans-serif;">INSTITUT PRIVE LAIC
+                    MBEUKAM</strong></h2>
+            <span>455 Foggy Heights, AZ 85004, US</span>
+            <span class="line"></span>
+            <a class="phone" href="tel:602-519-0450">(602) 519-0450</a>
+            <span class="line"></span>
+            <a class="email" href="mailto:company@example.com">company@example.com</a>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="details clearfix">
+        <div class="client left">
+            <p>MATRICULE : <strong>{{ eleve.matricule }}</strong></p>
+            <p class="name">NOM(S) ET PRENOM(S) : {{ eleve.nom|upper }} {{ eleve.prenom|upper }}</p>
+            <p class="name">CLASSE : {{ classe.classe.label|upper }}</p>
+            <p class="name">PAYE PAR : {{ paiement.payerPar|upper }}</p>
+        </div>
+
+        <div class="data right">
+            {% if eleve.paiements|length == 1 %}
+                <div class="title"><strong>RECU D'INSCRIPTION</strong></div>
+            {% else %}
+                <div class="title"><strong>RECU DE PAIEMENT N- {{ "now"|date('dmy') }}
+                        /{{ eleve.paiements|length }}</strong></div>
+            {% endif %}
+            <div class="date">
+                Date: {{ paiement.createdAt|date('d/m/Y H:i:s') }}<br>
+                Annee scolaire: 2020 - 2021<br>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="table-wrapper">
+            <table>
+                <tbody class="head">
+                <tr>
+                    <th class="no"></th>
+                    <th class="desc">
+                        <div>Description</div>
+                    </th>
+                    <th class="total">
+                        <div>Total</div>
+                    </th>
+                </tr>
+                </tbody>
+                <tbody class="body">
+                <tr>
+                    <td class="no">01</td>
+                    <td class="desc">{{ paiement.designation|upper }}</td>
+                    <td class="total">{{ paiement.montant|number_format(0 , ',' , ' ') }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="no-break">
+            <table class="grand-total">
+                <tbody>
+                <tr>
+                    <td class="no"></td>
+                    <td class="desc">SIGNATURE ET CACHET</td>
+                    <td class="qty"></td>
+                    <td class="unit">PENSION:</td>
+                    <td class="total">{{ classe.total|number_format(0 , ',' , ' ') }} XAF</td>
+                </tr>
+                <tr>
+                    <td class="no"></td>
+                    <td class="desc"> CAISSIER : {{ paiement.auteur.nom|upper }} {{ paiement.auteur.prenom|upper }}</td>
+                    <td class="qty"></td>
+                    <td class="unit">RESTE:</td>
+                    <td class="total">{{ paiement.reste|number_format(0 , ',' , ' ') }} XAF</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="notice">
+            <div>NB:</div>
+            <div>L'annulation d'un reçu est impossible après validation.</div>
+        </div>
+        <div class="end">DISCIPLINE - TRAVAIL - SUCCESS</div>
+    </div>
+</footer>
+
+<section style="margin-top: 100px;">
+    <header style="margin-top: 400px;" class="clearfix">
+        <div class="container">
+            <div class="company-info">
+                <h2 class="title"><strong style="font-weight: 400;font-family: sans-serif;">INSTITUT PRIVE LAIC
+                        MBEUKAM</strong></h2>
+                <span>455 Foggy Heights, AZ 85004, US</span>
+                <span class="line"></span>
+                <a class="phone" href="tel:602-519-0450">(602) 519-0450</a>
+                <span class="line"></span>
+                <a class="email" href="mailto:company@example.com">company@example.com</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="details clearfix">
+            <div class="client left">
+                <p>MATRICULE : <strong>{{ eleve.matricule }}</strong></p>
+                <p class="name">NOM(S) ET PRENOM(S) : {{ eleve.nom|upper }} {{ eleve.prenom|upper }}</p>
+                <p class="name">CLASSE : {{ classe.classe.label|upper }}</p>
+                <p class="name">PAYE PAR : {{ paiement.payerPar|upper }}</p>
+            </div>
+
+            <div class="data right">
+                {% if eleve.paiements|length == 1 %}
+                    <div class="title"><strong>RECU D'INSCRIPTION</strong></div>
+                {% else %}
+                    <div class="title"><strong>RECU DE PAIEMENT N- {{ "now"|date('dmy') }}
+                            /{{ eleve.paiements|length }}</strong></div>
+                {% endif %}
+                <div class="date">
+                    Date: {{ paiement.createdAt|date('d/m/Y H:i:s') }}<br>
+                    Annee scolaire: 2020 - 2021<br>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="table-wrapper">
+                <table>
+                    <tbody class="head">
+                    <tr>
+                        <th class="no"></th>
+                        <th class="desc">
+                            <div>Description</div>
+                        </th>
+                        <th class="total">
+                            <div>Total</div>
+                        </th>
+                    </tr>
+                    </tbody>
+                    <tbody class="body">
+                    <tr>
+                        <td class="no">01</td>
+                        <td class="desc">{{ paiement.designation|upper }}</td>
+                        <td class="total">{{ paiement.montant|number_format(0 , ',' , ' ') }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="no-break">
+                <table class="grand-total">
+                    <tbody>
+                    <tr>
+                        <td class="no"></td>
+                        <td class="desc">SIGNATURE ET CACHET</td>
+                        <td class="qty"></td>
+                        <td class="unit">PENSION:</td>
+                        <td class="total">{{ classe.total|number_format(0 , ',' , ' ') }} XAF</td>
+                    </tr>
+                    <tr>
+                        <td class="no"></td>
+                        <td class="desc"> CAISSIER : {{ paiement.auteur.nom|upper }}</td>
+                        <td class="qty"></td>
+                        <td class="unit">RESTE:</td>
+                        <td class="total">{{ paiement.reste|number_format(0 , ',' , ' ') }} XAF</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="notice">
+                <div>NB:</div>
+                <div>L'annulation d'un reçu est impossible après validation.</div>
+            </div>
+            <div class="end">DISCIPLINE - TRAVAIL - SUCCESS</div>
+        </div>
+    </footer>
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>BULLETINS| HSS</title>
+    {% include 'print/print_files/includes/_style.html.twig' %}
+</head>
+
+<body>
+
+{% include 'print/print_files/includes/_bulletins_header.html.twig' %}
+
+<section class="container">
+    <div class="student-image">
+        Student image
+    </div>
+    <div class="student-info">
+        <div class="left">
+            <span style="font-size: 12px;">Nom et prénom :</span>
+            <span style="font-size: 12px;font-weight: bold;">ZEH MENDOUGA GASPAR</span><br>
+            <span style="font-size: 12px;">Date et lieu de naissance :12/12/1998</span>
+            <span style="font-size: 12px;font-weight: bold;"> à LONKAK
+                </span><br>
+            <span style="font-size: 12px;">Tuteur :</span>
+            <span style="font-size: 12px;font-weight: bold;">ZEH MENDOUGA TIMOTE</span>
+            <span style="font-size: 12px;"> Tel : </span>
+            <span style="font-size: 12px;font-weight: bold;">(+ 237) 6777777777</span>
+        </div>
+        <div class="right">
+            <span style="font-size: 12px;">Matricule : </span>
+            <span style="font-size: 13px;font-weight: bold;">12E345</span><br>
+
+            <span style="font-size: 12px;">Classe : </span>
+            <span style="font-size: 13px;font-weight: bold;">5E2</span>
+        </div>
+    </div>
+    <div class="student-QRCode">
+        QRCode
+    </div>
+
+    <div class="note-info">
+        <table class="note-table">
+            <thead>
+            <tr>
+                <th style="width: 28%;">DISCIPLINE</th>
+                <th style="width: 8%;">EVA 1</th>
+                <th style="width: 8%;">EVA 2</th>
+                <th style="width: 8%;">MOY</th>
+                <th style="width: 5%;">Coef</th>
+                <th style="width: 10%;">Moy x Coef</th>
+                <th style="width: 5%;">Rang</th>
+                <th style="width: 10%;">Max / Min</th>
+                <th style="width: 15%;">APPRECIATIONS</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                {% include 'print/print_files/includes/_matieres_note.html.twig' %}
+                {% include 'print/print_files/includes/_matieres_note.html.twig' %}
+                {% include 'print/print_files/includes/_matieres_note.html.twig' %}
+            </tbody>
+
+            <tfoot>
+
+            </tfoot>
+
+            <tbody>
+
+            </tbody>
+            <tr style="color: white;margin-top: 20px;">
+                <td style="font-size: 13px;">TOTAL</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="desc"></td>
+                <td class="desc"></td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="app-info" style="margin-top: 10px;width: 100%;height: 230px;">
+
+        {% include 'print/print_files/includes/_bulletins_discipline.html.twig' %}
+
+        {% include 'print/print_files/includes/_travail_bulletins.html.twig' %}
+
+        <table class="table-disicipline" style="width: 25%;position: fixed;right: 3.5%;top: 73%;">
+            <tbody>
+            <tr>
+                <td colspan="2" style="background-color: rgb(122, 122, 136);color: white;font-weight: bold;">SIGNATURE DU
+                    PRINCIPAL
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 220px;" colspan="2">
+                    Yaoundé le , 
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div style="width: 100%;position: fixed;left: 3.8%;top: 97%;">
+        Générer par Host School Managment | Eden it systems
+    </div>
+
+</section>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>

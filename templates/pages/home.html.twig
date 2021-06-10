@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+<style>
+	
+</style>
+{% endblock %}
+
+{% block body %}
+	<!--reste de la page-->
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="jumbotron bg-primary m-4 text-center">
+					<h1 style="font-family:'algerian'">Bienvenue dans School managment</h1>
+				</div>
+			</div> 
+			<div class="col-12">
+				<table class="table table-tripped">
+					<thead>
+						<th>NOM</th>
+						<th>DESCRIPTION</th>
+						<th>OUVRIR</th>
+					</thead>
+					<tbody>
+						{% for document in documents %}
+						<tr>
+							<td>{{ document.nom }}</td>
+							<td>{{ document.desc }}</td>
+							<td>
+								<a href="{{ path(document.route) }}" target="_blank" class="h4 font-weight-bold">VOIR</a>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+					
+				</table>
+			</div> 
+		</div>
+		
+
+
+
+    
+	</div>
+
+{% endblock %}
